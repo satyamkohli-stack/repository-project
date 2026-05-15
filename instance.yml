@@ -1,0 +1,6 @@
+---
+name: creating ec2
+host: localhost
+task: aws ec2
+-name: ubuntu
+-service: 20.2
