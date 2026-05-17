@@ -1,0 +1,13 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: ec2 service
+
+Resources:
+  MyEC2Instance:
+    Type: 'AWS::EC2::Instance'
+    Properties:
+      InstanceType: t2.micro        # Choose your preferred instance type
+      ImageId: ami-0abcdef1234567890 # Replace with a valid AMI ID
+      KeyName: MyKeyPair            # Optional: Name of an existing key pair
+      Tags:
+        - Key: Name
+          Value: MySampleInstance
