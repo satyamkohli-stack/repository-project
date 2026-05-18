@@ -1,9 +1,0 @@
----
-name: creating ec2
-host: localhost
-task: aws ec2
--name: ubuntu
--service: apache2.
- localhost: satyam
- -keyid: 12345
-
