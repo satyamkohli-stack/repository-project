@@ -1,0 +1,29 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Launch EC2
+
+Parameters:
+  InstanceType:
+    Type: String
+    Default: t3.micro
+    AllowedValues: [t3.micro, t3.small, t2.micro]
+
+  KeyPairName:
+    Type: AWS::EC2::KeyPair::KeyName
+
+  ExistingSubnetId:
+    Type: AWS::EC2::Subnet::Id
+    
+  ExistingSecurityGroupId:
+    Type: AWS::EC2::SecurityGroup::Id
+
+Resources:
+  MyEC2Instance:
+    Type: AWS::EC2::Instance
+    Properties:
+      InstanceType: !Ref InstanceType
+      KeyName: !Ref KeyPairName
+      SubnetId: !Ref ExistingSubnetId
+      ImageId: ami-00a9f44477dd83e3d
+      Tags:
+        - Key: ohio jateen
+          Value: 3pm-batch
