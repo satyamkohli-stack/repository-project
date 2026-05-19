@@ -14,11 +14,11 @@ Resources:
      CidrIp: 0.0.0.0/0
      
  # Define the ec2 instance
- MyEC2Instance:
+  MyEC2Instance:
    Type: AWS::EC2::Instance 
    Properties:
     InstanceType: t3.micro
-    ImageId: ami-00a9f44477dd83e3d
+    ImageId: ami-0fe18bc3cfa53a248
     Keyname: ohio jateen
     SecurityGroupeIds:
      -!Ref WebServerSecurityGroupe
