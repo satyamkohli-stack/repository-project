@@ -1,27 +1,28 @@
 AWSTemplateFromVersion: '2010-09-09'
 Description: ec2 create
 
-Resources: 
- # Define The Security Groupe
-  WebServerSecurityGroupe:
-   Type: AWS::EC2::SecurityGroupe
-   Properties: 
-    GroupeDescription: SSH access
-    SecurityGroupeIngress: 
-     -IpPortocol: tcp
-     Formport: 22
-     ToPort: 22
-     CidrIp: 0.0.0.0/0
-     
- # Define the ec2 instance
+Resources:
+
+  # Define the Security Group
+  WebServerSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: SSH access
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 0.0.0.0/0
+
+  # Define the EC2 Instance
   MyEC2Instance:
-   Type: AWS::EC2::Instance 
-   Properties:
-    InstanceType: t3.micro
-    ImageId: ami-0fe18bc3cfa53a248
-    Keyname: ohio jateen
-    SecurityGroupeIds:
-     -!Ref WebServerSecurityGroupe
-     Tags:
-      -key: Name
-       Value: satyam
+    Type: AWS::EC2::Instance
+    Properties:
+      InstanceType: t3.micro
+      ImageId: ami-00a9f44477dd83e3d
+      KeyName: ohio jateen
+      SecurityGroupIds:
+        - !Ref WebServerSecurityGroup
+      Tags:
+        - Key: Name
+          Value: satyam
